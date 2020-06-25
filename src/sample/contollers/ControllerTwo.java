@@ -1,5 +1,6 @@
 package sample.contollers;
 
+
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -44,13 +45,17 @@ public class ControllerTwo {
         deposite();
         balance();
         withdraw();
+
     }
 
     /**
      * Метод выполняет пополнение баланса счета
      */
-    private void deposite(){
-        deposite_button.setOnAction(event ->{
+    private void deposite() {
+
+
+        deposite_button.setOnAction(event -> {
+
 
             Thread depositThread = new DepositThread(account, 10);
             depositThread.start();
@@ -60,26 +65,29 @@ public class ControllerTwo {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            infoField.setText("Ваш баланс пополнен: на " + account.getBalance() + " рублей");
 
-            infoField.setText("Ваш баланс пополнен: на " + account.getBalance()+" рублей");
 
         });
+
     }
 
     /**
      * Метод выполняет вывод текущего баланса
      */
-    private void balance(){
-        getBalanceButton.setOnAction(event ->{
-            infoField.setText("Ваш баланс составляет: " + account.getBalance()+" рублей");
+    private void balance() {
+        getBalanceButton.setOnAction(event -> {
+
+            infoField.setText("Ваш баланс составляет: " + account.getBalance() + " рублей");
         });
     }
 
     /**
      * Метод выполняет снятие денежных средств
      */
-    private void withdraw(){
-        withDrawButton.setOnAction(event ->{
+    private void withdraw() {
+        withDrawButton.setOnAction(event -> {
+
             try {
                 account.withdraw(500);
             } catch (OutOfBalanceValue outOfBalanceValue) {
@@ -91,4 +99,6 @@ public class ControllerTwo {
             }
         });
     }
+
+
 }

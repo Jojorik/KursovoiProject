@@ -4,6 +4,7 @@ import sample.exception.NegativeValueException;
 import sample.exception.OutOfBalanceValue;
 
 public class Account {
+
     private long balance;
 
     public Account() {
@@ -20,7 +21,7 @@ public class Account {
 
     public synchronized void deposit(long money) throws NegativeValueException {
         checkMoney(money);
-        balance += money;
+        balance = money;
         notify();
     }
 
