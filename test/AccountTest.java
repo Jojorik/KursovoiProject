@@ -2,6 +2,9 @@ import sample.exception.NegativeValueException;
 import sample.exception.OutOfBalanceValue;
 import sample.program.Account;
 
+/**
+ * Класс, с unit - тестами класса Account
+ */
 public class AccountTest {
 
     @org.junit.Test(expected = NegativeValueException.class)
@@ -13,6 +16,6 @@ public class AccountTest {
     @org.junit.Test(expected = NegativeValueException.class)
     public void accountWithdrawNegative() throws OutOfBalanceValue, InterruptedException, NegativeValueException {
         Account account = new Account(250);
-        account.withdraw(-300);
+        account.deposit(-300);
     }
 }

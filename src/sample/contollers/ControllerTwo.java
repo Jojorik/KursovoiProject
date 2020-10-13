@@ -57,7 +57,7 @@ public class ControllerTwo {
         deposite_button.setOnAction(event -> {
 
 
-            Thread depositThread = new DepositThread(account, 10);
+            Thread depositThread = new DepositThread(account, 100);
             depositThread.start();
 
             try {
@@ -89,7 +89,7 @@ public class ControllerTwo {
         withDrawButton.setOnAction(event -> {
 
             try {
-                account.withdraw(500);
+                account.withdraw(10);
             } catch (OutOfBalanceValue outOfBalanceValue) {
                 infoField.setText("Not enough money for withdraw");
             } catch (InterruptedException e) {

@@ -5,6 +5,11 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+/**
+ * Класс, отвечающий за работу с БД
+ * @author Ponomarev G.I. 17IT18
+ */
+
 public class DataBaseHandler extends Configs {
     Connection dbConnection;
 
@@ -16,16 +21,20 @@ public class DataBaseHandler extends Configs {
         dbConnection = DriverManager.getConnection(connectionString, dbUser, dbPass);
         return dbConnection;
     }
-    public void signUpUser(String email, String password){
-        String insert = "INSERT INTO "+ Const.USER_TABLE + "("+ Const.USER_EMAIL + ","+
-                Const.USER_PASSWORD +"," + ")"+
-                "VALUES(?,?)";
+    public void signUpUsers(String firstName, String lastName, String userName, String password, String location, String gender){
+        String insert ="INSERT INTO "+ Const.USER_TABLE + "(" + Const.USER_FIRSTNAME + "," + Const.USER_LASTNAME + ","+ Const.USER_USERNAME + ","+ Const.USER_PASSWORD + "," + Const.USER_LOCATION + "," +Const.USER_GENDER + ")" +
+                "VALUES(?,?,?,?,?,?)";
+
 
 
         try {
             PreparedStatement prSt = getDbConnection().prepareStatement(insert);
-            prSt.setString(1,email);
-            prSt.setString(2,password);
+            prSt.setString(1, firstName);
+            prSt.setString(2, lastName);
+            prSt.setString(3, userName);
+            prSt.setString(4, password);
+            prSt.setString(5, location);
+            prSt.setString(6, gender);
 
             prSt.executeUpdate();
         } catch (SQLException throwables) {

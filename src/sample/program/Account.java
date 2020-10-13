@@ -39,7 +39,11 @@ public class Account {
         balance -= money;
     }
 
-
+    /**
+     * Метод, реализующий проверку баланса на счете
+     * @param money - операнд - количество денежных средств
+     * @throws NegativeValueException - ошибка, при отрицательном балансе
+     */
     private void checkMoney(long money) throws NegativeValueException {
         if (money < 0) {
             throw new NegativeValueException();

@@ -12,6 +12,9 @@ public class DepositThread extends Thread {
         this.money = money;
     }
 
+    /**
+     * Метод запуска потока
+     */
     @Override
     public void run() {
 

@@ -2,8 +2,9 @@ package sample.contollers;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.regex.Pattern;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -20,6 +21,7 @@ import sample.database.DataBaseHandler;
  */
 
 public class Controller {
+
 
     @FXML
     private ResourceBundle resources;
@@ -41,7 +43,9 @@ public class Controller {
     @FXML
     void initialize() {
 
+
         transitionEntranceUser();
+        signUpUser();
 
     }
 
@@ -86,11 +90,31 @@ public class Controller {
             if (!loginText.equals("") && !loginPassword.equals("")) {
                 loginUser(loginText, loginPassword);
             }
-        dbHandler.signUpUser(login_field.getText(),password_field.getText());
+
     }
 
     private void loginUser(String loginText, String loginPassword) {
 
+    }
+
+    /**
+     * Метод загружает окно регистрации
+     */
+    private void signUpUser(){
+        signUpInButton.setOnAction(event->{
+            signUpInButton.getScene().getWindow().hide();
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/sample/signUp.fxml"));
+            try {
+                loader.load();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Parent root = loader.getRoot();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.showAndWait();
+        });
     }
 
 }

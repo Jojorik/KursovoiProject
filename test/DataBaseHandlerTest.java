@@ -2,6 +2,9 @@ import sample.database.DataBaseHandler;
 
 import java.sql.SQLException;
 import java.sql.SQLNonTransientConnectionException;
+/**
+ * Класс, с unit - тестами класса DataBaseHandler
+ */
 
 public class DataBaseHandlerTest {
 
@@ -11,6 +14,6 @@ public class DataBaseHandlerTest {
         DataBaseHandler dataBaseHandler = new DataBaseHandler();
         dataBaseHandler.getDbConnection();
 
-        dataBaseHandler.signUpUser("email", "password");
+       // dataBaseHandler.signUpUser("email", "password");
     }
 }
