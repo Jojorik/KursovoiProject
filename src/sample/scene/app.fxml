@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -10,22 +11,24 @@
     <children>
         <AnchorPane layoutY="93.0" prefHeight="305.0" prefWidth="700.0" style="-fx-background-color: #FAFAFA;">
             <children>
-                <Button fx:id="withDrawButton" layoutX="87.0" layoutY="44.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="107.0" style="-fx-background-color: #F39C63;" text="Снять" textFill="WHITE">
+                <Button fx:id="withDrawButton" layoutX="87.0" layoutY="80.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="107.0" style="-fx-background-color: #F39C63;" text="Снять" textFill="WHITE">
                     <font>
                         <Font size="17.0" />
                     </font>
                 </Button>
-            <Button fx:id="getBalanceButton" layoutX="517.0" layoutY="44.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="107.0" style="-fx-background-color: #F39C63;" text="Баланс" textFill="WHITE">
+            <Button fx:id="getBalanceButton" layoutX="517.0" layoutY="80.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="107.0" style="-fx-background-color: #F39C63;" text="Баланс" textFill="WHITE">
                <font>
                   <Font size="17.0" />
                </font>
             </Button>
-            <Button fx:id="deposite_button" layoutX="296.0" layoutY="44.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="107.0" style="-fx-background-color: #F39C63;" text="Пополнить" textFill="WHITE">
+            <Button fx:id="deposite_button" layoutX="296.0" layoutY="80.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="107.0" style="-fx-background-color: #F39C63;" text="Пополнить" textFill="WHITE">
                <font>
                   <Font size="17.0" />
                </font>
             </Button>
-            <Text fx:id="infoField" layoutX="87.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="538.1366958618164" />
+            <Text fx:id="infoField" layoutX="81.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="538.1366958618164" />
+            <TextField fx:id="withdraw_field" layoutX="73.0" layoutY="31.0" promptText="Введите сумму для снятия" />
+            <TextField fx:id="deposit_field" layoutX="275.0" layoutY="31.0" promptText="Введите сумму для пополнения" />
             </children>
         </AnchorPane>
         <Label layoutX="225.0" layoutY="13.0" text="Сбербакс" textFill="WHITE">

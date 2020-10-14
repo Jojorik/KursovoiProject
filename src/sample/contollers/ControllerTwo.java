@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import sample.exception.NegativeValueException;
 import sample.exception.OutOfBalanceValue;
@@ -17,6 +18,8 @@ import sample.program.DepositThread;
  */
 
 public class ControllerTwo {
+
+
 
     Account account = new Account();
 
@@ -39,6 +42,12 @@ public class ControllerTwo {
 
     @FXML
     private Button backButton;
+    @FXML
+    private TextField withdraw_field;
+
+    @FXML
+    private TextField deposit_field;
+
 
     @FXML
     void initialize() {
@@ -55,9 +64,11 @@ public class ControllerTwo {
 
 
         deposite_button.setOnAction(event -> {
+            Long deposit_field_value = Long.parseLong(deposit_field.getText());
 
 
-            Thread depositThread = new DepositThread(account, 100);
+
+            Thread depositThread = new DepositThread(account, deposit_field_value);
             depositThread.start();
 
             try {
@@ -65,7 +76,7 @@ public class ControllerTwo {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            infoField.setText("Ваш баланс пополнен: на " + account.getBalance() + " рублей");
+            infoField.setText("Ваш баланс пополнен: на " + deposit_field_value + " рублей");
 
 
         });
@@ -87,9 +98,10 @@ public class ControllerTwo {
      */
     private void withdraw() {
         withDrawButton.setOnAction(event -> {
+            Long withdraw_field_value = Long.parseLong(withdraw_field.getText());
 
             try {
-                account.withdraw(10);
+                account.withdraw(withdraw_field_value);
             } catch (OutOfBalanceValue outOfBalanceValue) {
                 infoField.setText("Not enough money for withdraw");
             } catch (InterruptedException e) {
@@ -99,6 +111,7 @@ public class ControllerTwo {
             }
         });
     }
+
 
 
 }
