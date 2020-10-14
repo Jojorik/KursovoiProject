@@ -1,5 +1,9 @@
 package sample.database;
 
+/**
+ * Класс, предоставляющий основные параметры для входа в БД
+ */
+
 public class Configs {
     protected String dbHost = "localhost";
     protected String dbPort = "3306";

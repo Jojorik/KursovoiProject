@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.ResultSet;
 
 /**
  * Класс, отвечающий за работу с БД
@@ -44,5 +45,6 @@ public class DataBaseHandler extends Configs {
         }
 
     }
+
 
 }
