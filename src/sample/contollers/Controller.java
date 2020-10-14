@@ -2,6 +2,8 @@ package sample.contollers;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 
@@ -13,6 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import sample.User;
 import sample.database.DataBaseHandler;
 
 /**
@@ -54,6 +57,7 @@ public class Controller {
      */
     private void transitionEntranceUser(){
         authSignUpInButton.setOnAction(event ->{
+            signUpNewUser();
 
             authSignUpInButton.getScene().getWindow().hide();
 
@@ -87,14 +91,33 @@ public class Controller {
 
             String loginText = login_field.getText().trim();
             String loginPassword = password_field.getText().trim();
-            if (!loginText.equals("") && !loginPassword.equals("")) {
+            if (!loginText.equals("") && !loginPassword.equals(""))
                 loginUser(loginText, loginPassword);
-            }
+            else
+                System.out.println("Login and password is empty");
+
 
     }
 
     private void loginUser(String loginText, String loginPassword) {
+        DataBaseHandler dbHandler = new DataBaseHandler();
+        User user = new User();
+        user.setUserName(loginText);
+        user.setPassword(loginPassword);
+        ResultSet result = dbHandler.getUser(user);
 
+        int counter = 0;
+        try {
+            while (result.next()) {
+                counter++;
+
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        if(counter>=1){
+            System.out.println("Success");
+        }
     }
 
     /**

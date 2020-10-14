@@ -24,6 +24,11 @@ public class DataBaseHandler extends Configs {
         dbConnection = DriverManager.getConnection(connectionString, dbUser, dbPass);
         return dbConnection;
     }
+
+    /**
+     * Метод для загрузки данных в БД
+     * @param user - пользователь
+     */
     public void signUpUsers(User user){
         String insert ="INSERT INTO "+ Const.USER_TABLE + "(" + Const.USER_FIRSTNAME + "," + Const.USER_LASTNAME + ","+ Const.USER_USERNAME + ","+ Const.USER_PASSWORD + "," + Const.USER_LOCATION + "," +Const.USER_GENDER + ")" +
                 "VALUES(?,?,?,?,?,?)";
@@ -46,6 +51,30 @@ public class DataBaseHandler extends Configs {
             e.printStackTrace();
         }
 
+    }
+
+    /**
+     * Метод для получения данных из БД
+     * @param user - пользователь
+     * @return
+     */
+    public ResultSet getUser(User user){
+        ResultSet resSet = null;
+        String select = "SELECT * FROM " + Const.USER_TABLE + " WHERE " + Const.USER_USERNAME + "=? AND " + Const.USER_PASSWORD + "=?";
+
+        try {
+            PreparedStatement prSt = getDbConnection().prepareStatement(select);
+            prSt.setString(1, user.getUserName());
+            prSt.setString(2, user.getPassword());
+
+
+            resSet = prSt.executeQuery();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return resSet;
     }
 
 }
