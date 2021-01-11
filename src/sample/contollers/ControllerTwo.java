@@ -7,10 +7,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
-import sample.exception.NegativeValueException;
-import sample.exception.OutOfBalanceValue;
-import sample.program.Account;
-import sample.program.DepositThread;
+import sample.database.DatabaseProduct;
+
 
 /**
  * Класс, отвечающий за отображение эллементов окна операций приложения
@@ -19,9 +17,6 @@ import sample.program.DepositThread;
 
 public class ControllerTwo {
 
-
-
-    Account account = new Account();
 
     public Text infoField;
 
@@ -32,85 +27,76 @@ public class ControllerTwo {
     private URL location;
 
     @FXML
-    private Button withDrawButton;
+    private Button coldProductButton;
 
     @FXML
-    private Button getBalanceButton;
+    private Button drinksProductButton;
 
     @FXML
-    private Button deposite_button;
+    private Button hotProductButton;
+
 
     @FXML
-    private Button backButton;
-    @FXML
-    private TextField withdraw_field;
+    private TextField hotNameProduct;
 
     @FXML
-    private TextField deposit_field;
+    private TextField countWarehouseColdProduct;
+
+    @FXML
+    private TextField drinksNameProduct;
+
+    @FXML
+    private TextField countShowcaseColdProduct;
+    @FXML
+    private TextField coldNameProduct;
+
+    @FXML
+    private TextField countWarehouseHotProduct;
+
+    @FXML
+    private TextField countShowcaseHotProduct;
+
+    @FXML
+    private TextField countWarehouseDrinksProduct;
+
+    @FXML
+    private TextField countShowcaseDrinksProduct;
 
 
     @FXML
     void initialize() {
-        deposite();
-        balance();
-        withdraw();
-
+    addColdProduct();
+    addHotProduct();
+    addDrinksProduct();
     }
 
     /**
-     * Метод выполняет пополнение баланса счета
+     * Метод, позволяет при вводе данных в поля ввода и нажатии на кнопку отправить данные в Базу данных холодных продуктов
      */
-    private void deposite() {
-
-
-        deposite_button.setOnAction(event -> {
-            Long deposit_field_value = Long.parseLong(deposit_field.getText());
-
-
-
-            Thread depositThread = new DepositThread(account, deposit_field_value);
-            depositThread.start();
-
-            try {
-                depositThread.join();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            infoField.setText("Ваш баланс пополнен: на " + deposit_field_value + " рублей");
-
+    private void addColdProduct(){
+        DatabaseProduct dbhandler = new DatabaseProduct();
+        coldProductButton.setOnAction(event ->{
+            dbhandler.insertColdProductDatabase(coldNameProduct.getText(), countWarehouseColdProduct.getText(), countShowcaseColdProduct.getText());
 
         });
-
     }
-
     /**
-     * Метод выполняет вывод текущего баланса
+     * Метод, позволяет при вводе данных в поля ввода и нажатии на кнопку отправить данные в Базу данных горячих продуктов
      */
-    private void balance() {
-        getBalanceButton.setOnAction(event -> {
-
-            infoField.setText("Ваш баланс составляет: " + account.getBalance() + " рублей");
+    private void addHotProduct(){
+        DatabaseProduct databaseProduct = new DatabaseProduct();
+        hotProductButton.setOnAction(event->{
+            databaseProduct.insertHotProductDatabase(hotNameProduct.getText(),countWarehouseHotProduct.getText(),countShowcaseHotProduct.getText());
         });
     }
-
     /**
-     * Метод выполняет снятие денежных средств
+     * Метод, позволяет при вводе данных в поля ввода и нажатии на кнопку отправить данные в Базу данных напитков
      */
-    private void withdraw() {
-        withDrawButton.setOnAction(event -> {
-            Long withdraw_field_value = Long.parseLong(withdraw_field.getText());
-
-            try {
-                account.withdraw(withdraw_field_value);
-            } catch (OutOfBalanceValue outOfBalanceValue) {
-                infoField.setText("Not enough money for withdraw");
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            } catch (NegativeValueException e) {
-                e.printStackTrace();
-            }
-        });
+    private void addDrinksProduct(){
+    DatabaseProduct databaseProduct = new DatabaseProduct();
+    drinksProductButton.setOnAction(event->{
+        databaseProduct.insertDrinkProductDatabase(drinksNameProduct.getText(),countWarehouseDrinksProduct.getText(),countShowcaseDrinksProduct.getText());
+    });
     }
-
 
 }

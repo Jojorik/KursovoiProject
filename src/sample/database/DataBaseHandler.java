@@ -32,9 +32,6 @@ public class DataBaseHandler extends Configs {
     public void signUpUsers(User user){
         String insert ="INSERT INTO "+ Const.USER_TABLE + "(" + Const.USER_FIRSTNAME + "," + Const.USER_LASTNAME + ","+ Const.USER_USERNAME + ","+ Const.USER_PASSWORD + "," + Const.USER_LOCATION + "," +Const.USER_GENDER + ")" +
                 "VALUES(?,?,?,?,?,?)";
-
-
-
         try {
             PreparedStatement prSt = getDbConnection().prepareStatement(insert);
             prSt.setString(1, user.getFirstName());

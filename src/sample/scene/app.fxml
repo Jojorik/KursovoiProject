@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -9,32 +8,37 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #2E3348;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.contollers.ControllerTwo">
     <children>
-        <AnchorPane layoutY="93.0" prefHeight="305.0" prefWidth="700.0" style="-fx-background-color: #FAFAFA;">
+        <AnchorPane layoutY="94.0" prefHeight="305.0" prefWidth="700.0" style="-fx-background-color: #FAFAFA;">
             <children>
-                <Button fx:id="withDrawButton" layoutX="87.0" layoutY="80.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="107.0" style="-fx-background-color: #F39C63;" text="Снять" textFill="WHITE">
+                <Button fx:id="coldProductButton" layoutX="71.0" layoutY="171.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="107.0" style="-fx-background-color: #F39C63;" text="Добавить" textFill="WHITE">
                     <font>
                         <Font size="17.0" />
                     </font>
                 </Button>
-            <Button fx:id="getBalanceButton" layoutX="517.0" layoutY="80.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="107.0" style="-fx-background-color: #F39C63;" text="Баланс" textFill="WHITE">
+            <Button fx:id="drinksProductButton" layoutX="482.0" layoutY="171.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="107.0" style="-fx-background-color: #F39C63;" text="Добавить" textFill="WHITE">
                <font>
                   <Font size="17.0" />
                </font>
             </Button>
-            <Button fx:id="deposite_button" layoutX="296.0" layoutY="80.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="107.0" style="-fx-background-color: #F39C63;" text="Пополнить" textFill="WHITE">
+            <Button fx:id="hotProductButton" layoutX="276.0" layoutY="171.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="107.0" style="-fx-background-color: #F39C63;" text="Добавить" textFill="WHITE">
                <font>
                   <Font size="17.0" />
                </font>
             </Button>
-            <Text fx:id="infoField" layoutX="81.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="538.1366958618164" />
-            <TextField fx:id="withdraw_field" layoutX="73.0" layoutY="31.0" promptText="Введите сумму для снятия" />
-            <TextField fx:id="deposit_field" layoutX="275.0" layoutY="31.0" promptText="Введите сумму для пополнения" />
+            <Text fx:id="infoField" layoutX="86.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="538.1366958618164" />
+            <TextField fx:id="hotNameProduct" layoutX="234.0" layoutY="44.0" prefHeight="26.0" prefWidth="191.0" promptText="Введите название продукта" />
+            <TextField fx:id="countShowcaseColdProduct" layoutX="29.0" layoutY="117.0" prefHeight="26.0" prefWidth="191.0" promptText="Введите количество для поставки" />
+            <TextField fx:id="drinksNameProduct" layoutX="440.0" layoutY="44.0" prefHeight="26.0" prefWidth="191.0" promptText="Введите название продукта" />
+            <TextField fx:id="countWarehouseColdProduct" layoutX="29.0" layoutY="82.0" prefHeight="26.0" prefWidth="191.0" promptText="Введите количество на складе" />
+            <TextField fx:id="coldNameProduct" layoutX="29.0" layoutY="44.0" prefHeight="26.0" prefWidth="191.0" promptText="Введите название продукта" />
+            <TextField fx:id="countShowcaseHotProduct" layoutX="234.0" layoutY="117.0" prefHeight="26.0" prefWidth="191.0" promptText="Введите колличество для поставки" />
+            <TextField fx:id="countWarehouseHotProduct" layoutX="234.0" layoutY="82.0" prefHeight="26.0" prefWidth="191.0" promptText="Введите колличество на складе" />
+            <TextField fx:id="countShowcaseDrinksProduct" layoutX="440.0" layoutY="117.0" prefHeight="26.0" prefWidth="191.0" promptText="Введите количество для поставки" />
+            <TextField fx:id="countWarehouseDrinksProduct" layoutX="440.0" layoutY="82.0" prefHeight="26.0" prefWidth="191.0" promptText="Введите количество на складе" />
             </children>
         </AnchorPane>
-        <Label layoutX="225.0" layoutY="13.0" text="Сбербакс" textFill="WHITE">
-            <font>
-                <Font name="Malgun Gothic" size="46.0" />
-            </font>
-        </Label>
+      <Text fill="#f0efef" layoutX="117.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Холодный цех" />
+      <Text fill="WHITE" layoutX="319.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Горячий цех" />
+      <Text fill="WHITE" layoutX="530.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Напитки" />
     </children>
 </AnchorPane>

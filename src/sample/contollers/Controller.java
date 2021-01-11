@@ -107,14 +107,17 @@ public class Controller {
         ResultSet result = dbHandler.getUser(user);
 
         int counter = 0;
-        try {
-            while (result.next()) {
+
+            while (true) {
+                try {
+                    if (!result.next()) break;
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
                 counter++;
 
             }
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
+
         if(counter>=1){
             System.out.println("Success");
         }
