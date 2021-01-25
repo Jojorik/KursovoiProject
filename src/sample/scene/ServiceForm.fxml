@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox spacing="10.0" style="-fx-border-color: black;"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.contollers.FormController">
+    <userData>
+        <fx:reference source="controller"/>
+    </userData>
+    <children>
+        <ImageView fx:id="image" fitHeight="110.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true">
+            <viewport>
+                <Rectangle2D/>
+            </viewport>
+            <HBox.margin>
+                <Insets/>
+            </HBox.margin>
+        </ImageView>
+        <VBox alignment="CENTER_LEFT" spacing="2.0" HBox.hgrow="ALWAYS">
+            <HBox.margin>
+                <Insets/>
+            </HBox.margin>
+            <children>
+                <Label fx:id="name" alignment="CENTER" textAlignment="CENTER" VBox.vgrow="ALWAYS">
+                    <VBox.margin>
+                        <Insets/>
+                    </VBox.margin>
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                </Label>
+                <HBox spacing="5.0" VBox.vgrow="ALWAYS">
+                    <children>
+                        <Label fx:id="cost" alignment="CENTER" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+                            <font>
+                                <Font size="18.0"/>
+                            </font>
+                        </Label>
+                        <Label alignment="CENTER" text="рублей за 30 минут" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+                            <font>
+                                <Font size="18.0"/>
+                            </font>
+                        </Label>
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" spacing="5.0" VBox.vgrow="ALWAYS">
+                    <VBox.margin>
+                        <Insets/>
+                    </VBox.margin>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+    <padding>
+        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+    </padding>
+</HBox>
