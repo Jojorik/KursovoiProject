@@ -4,15 +4,23 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+
 import javafx.stage.Stage;
+import sample.database.Database;
+
 
 public class Main extends Application {
 
+
     @Override
     public void start(Stage primaryStage) throws Exception{
+        Database.createDatabaseConnection();
 
         Parent root = FXMLLoader.load(getClass().getResource("/sample/scene/sample.fxml"));
-        primaryStage.setTitle("Сбербакс");
+
+        primaryStage.setTitle("Автосервис");
+
+
         primaryStage.setScene(new Scene(root, 700, 400));
         primaryStage.show();
     }

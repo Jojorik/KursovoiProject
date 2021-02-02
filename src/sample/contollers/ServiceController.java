@@ -44,6 +44,7 @@ public class ServiceController {
         setFormPanes(services);
         setRefreshOnAction();
         setSortByCostOnAction();
+        setSortBySaleOnAction();
 
     }
 
@@ -73,9 +74,22 @@ public class ServiceController {
             setFormsPanes(services);
         });
     }
+    private void setSortBySaleOnAction() {
+        sortBySale.setOnAction(event -> {
+            ArrayList<Service> oldArray = new ArrayList<>(services);
+            services.sort(comparatorSale());
+            if (oldArray.equals(services))
+                services.sort(comparatorSale().reversed());
+            setFormsPanes(services);
+        });
+    }
+
 
     private Comparator<Service> comparatorCost() {
         return (object1, object2) -> Float.compare(object1.getCost(), object2.getCost());
+    }
+    private Comparator<Service> comparatorSale() {
+        return (object1, object2) -> Double.compare(object1.getSale(), object2.getSale());
     }
 
 
@@ -116,4 +130,5 @@ public class ServiceController {
             formVBox.getChildren().add(form);
         }
     }
+
 }

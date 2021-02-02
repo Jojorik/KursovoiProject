@@ -1,4 +1,5 @@
 package sample.contollers;
+
 /**
  * Класс, для работы с окном регистрации
  */
@@ -13,9 +14,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
-
 import javafx.stage.Stage;
-import sample.User;
+import sample.objects.User;
 import sample.database.DataBaseHandler;
 
 public class SignUpController {
@@ -59,7 +59,7 @@ public class SignUpController {
             signUpNewUser();
             signUpInButton.getScene().getWindow().hide();
             FXMLLoader load = new FXMLLoader();
-            load.setLocation(getClass().getResource("/sample/scene/app.fxml"));
+            load.setLocation(getClass().getResource("/sample/scene/ServiceMenu.fxml"));
             try {
                 load.load();
             } catch (IOException e) {
@@ -70,7 +70,6 @@ public class SignUpController {
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.show();
-
 
         } );
     }
@@ -92,5 +91,4 @@ public class SignUpController {
         dbHandler.signUpUsers(user);
 
     }
-
 }

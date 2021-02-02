@@ -2,9 +2,8 @@ package sample.database;
 
 import java.sql.*;
 
-
 /**
- * Класс для работы с таблицей БД, продукты
+ * Класс для работы с таблицей БД
  */
 
 public class DatabaseProduct extends Configs{
@@ -18,13 +17,6 @@ public class DatabaseProduct extends Configs{
         dbConnection = DriverManager.getConnection(connectionString, dbUser, dbPass);
         return dbConnection;
     }
-
-    /**
-     * Метод, отправляющий запрос на добавление в Бд холодных продуктов
-     * @param name - название продукта в бд
-     * @param coldProductsWarehouse - количество на складе
-     * @param coldProductsShow - номер поставки
-     */
 
     public void insertColdProductDatabase(String name, String coldProductsWarehouse, String coldProductsShow){
         String insertInColdProduct ="INSERT INTO cold_products(name, count_warehouse,count_showcase)"+
@@ -42,12 +34,6 @@ public class DatabaseProduct extends Configs{
 
     }
 
-    /**
-     * Метод, отправляющий запрос на добавление горячего продукта в бд
-     * @param hotProductsName - название продукта в бд горячего цеха
-     * @param hotProductsContWarehouse - количество на складе
-     * @param hotProductsCountShowcase - номер поставки
-     */
 
     public void insertHotProductDatabase(String hotProductsName, String hotProductsContWarehouse, String hotProductsCountShowcase){
         String insertInHotProduct ="INSERT INTO hot_products(name, count_warehouse,count_showcase)"+
@@ -70,7 +56,6 @@ public class DatabaseProduct extends Configs{
      * @param drinksProductsContWarehouse - количество на складе
      * @param drinksProductsCountShowcase - номер поставки
      */
-
     public void insertDrinkProductDatabase(String drinksProductsName, String drinksProductsContWarehouse, String drinksProductsCountShowcase){
         String insertInDrinksProduct ="INSERT INTO drinks_products(name, count_warehouse,count_showcase)"+
                 "VALUES('"+ drinksProductsName + "'," + drinksProductsContWarehouse + "," +drinksProductsCountShowcase+")";
@@ -85,5 +70,4 @@ public class DatabaseProduct extends Configs{
             e.printStackTrace();
         }
     }
-
 }

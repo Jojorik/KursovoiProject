@@ -8,6 +8,26 @@ public class Service {
     private double sale;
     private String imagePath;
 
+    private int durationInSeconds;
+
+    private String description;
+
+    public int getDurationInSeconds() {
+        return durationInSeconds;
+    }
+
+    public void setDurationInSeconds(int durationInSeconds) {
+        this.durationInSeconds = durationInSeconds;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public int getID() {
         return ID;
     }
@@ -47,4 +67,6 @@ public class Service {
     public void setImagePath(String imagePath) {
         this.imagePath = imagePath;
     }
+
+
 }

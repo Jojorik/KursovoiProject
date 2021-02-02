@@ -1,6 +1,6 @@
 package sample.database;
 
-import sample.User;
+import sample.objects.User;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,9 +8,8 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.ResultSet;
 
-/**
- * Класс, отвечающий за работу с БД
- * @author Ponomarev G.I. 17IT18
+/**1
+ * Класс, отвечающий за работу с БД для таблицы пользователь
  */
 
 public class DataBaseHandler extends Configs {

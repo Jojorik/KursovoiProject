@@ -13,7 +13,7 @@ public class DataBaseHandlerTest {
     public void signUpUser() throws SQLException, ClassNotFoundException {
         DataBaseHandler dataBaseHandler = new DataBaseHandler();
         dataBaseHandler.getDbConnection();
-
+    
        // dataBaseHandler.signUpUser("email", "password");
     }
 }

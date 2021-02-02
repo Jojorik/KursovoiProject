@@ -15,7 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import sample.User;
+import sample.objects.User;
 import sample.database.DataBaseHandler;
 
 /**
@@ -62,7 +62,7 @@ public class Controller {
             authSignUpInButton.getScene().getWindow().hide();
 
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/sample/scene/app.fxml"));
+            loader.setLocation(getClass().getResource("/sample/scene/ServiceMenu.fxml"));
 
             try {
                 loader.load();
@@ -75,16 +75,13 @@ public class Controller {
             stage.setScene(new Scene(root));
             stage.showAndWait();
             signUpNewUser();
-
-
-
-
         });
     }
 
 
-
-
+    /**
+     * Метод для проверки пользователя в бд
+     */
     private void signUpNewUser() {
         DataBaseHandler dbHandler = new DataBaseHandler();
 
@@ -99,6 +96,11 @@ public class Controller {
 
     }
 
+    /**
+     * Метод для загрузки данных для входа пользователя
+     * @param loginText
+     * @param loginPassword
+     */
     private void loginUser(String loginText, String loginPassword) {
         DataBaseHandler dbHandler = new DataBaseHandler();
         User user = new User();
